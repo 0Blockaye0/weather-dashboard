@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.18/dist/css/uikit.min.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="uk-container-expand uk-text-center">
+        <h1 class="uk-heading-medium">Weather Dashbord</h1>
+    </header>
+
+    <div class="uk-section uk-section-muted "></div>
+    
+    <!-- main content -->
+    <div class="uk-container">
+        <div class="uk-text-center" uk-grid id="main-content">
+            <div class="uk-width-auto uk-position-large uk-position-center-left uk-overlay-default">
+                <div class="uk-card uk-card-default uk-card-body">
+                    <!-- input -->
+                    <form class="uk-search uk-search-default">
+                        <span uk-search-icon></span>
+                        <input class="uk-search-input" type="search" placeholder="Search">
+                    </form>
+
+                    <!-- Divider -->
+                    <hr class="uk-divider-icon">
+
+                    <!-- list -->
+                    <div class="">
+                        <ul class="uk-list uk-list-large uk-list-striped">
+                            <li>List item 1</li>
+                            <li>List item 2</li>
+                            <li>List item 3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-width-xlarge uk-position-large uk-position-center-right uk-overlay-default">
+                <div class="uk-card uk-card-default uk-card-body">
+                    <!-- location -->
+                    <h1 class="uk-heading-divider uk-heading-large">
+                        location
+                    </h1>
+
+                    <table class="uk-table uk-table-divider">
+                        <thead>
+                            <tr>
+                                <th>Current Weather</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Weather Data</td>
+                            </tr>
+                            <tr>
+                                <td>Weather Data</td>
+                            </tr>
+                            <tr>
+                                <td>Weather Data</td>
+                            </tr>
+                            <tr>
+                                <td>Weather Data</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 5 day forcast -->
+        <div class="uk-container">
+            <div class="uk-inline uk-flex uk-position-bottom-center">
+                <div class="uk-margin-large-bottom uk-card uk-card-default uk-card-large uk-card-body">
+                    Item 1
+                </div>
+                <div class="uk-margin-large-bottom uk-card uk-card-default uk-card-large uk-card-body uk-margin-left">
+                    Item 2
+                </div>
+                <div class="uk-margin-large-bottom uk-card uk-card-default uk-card-large uk-card-body uk-margin-left">
+                    Item 3
+                </div>
+                <div class="uk-margin-large-bottom uk-card uk-card-default uk-card-large uk-card-body uk-margin-left">
+                    Item 4
+                </div>
+                <div class="uk-margin-large-bottom uk-card uk-card-default uk-card-large uk-card-body uk-margin-left">
+                    Item 5
+                </div>
+            </div>
+        </div>
+
+
+    
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>
