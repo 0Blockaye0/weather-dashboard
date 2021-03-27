@@ -1,4 +1,5 @@
-var searchBarEl = document.getElementById("search");
+
+var submit = document.getElementById("submit");
 
 //GETS UV INDEX
 var getLocationUV = function (lat, lon) {
@@ -50,8 +51,9 @@ var getCoordinates = function (cityName, stateCode) {
     });
 };
 
+// HANDLES SEARCH EVENT
 var searchEventHandler = function (event) {
-  event.preventDefualt();
+  event.preventDefault();
   console.log("evnt handler is called");
 
   var searchInputEl = document.getElementById("search");
@@ -62,12 +64,13 @@ var searchEventHandler = function (event) {
 
   if (searchInput) {
     getCoordinates(searchInput);
-    // searchInputEl.value = "";
+    searchInputEl.value = "";
   } else {
     alert("please enter a city and state like 'Austin,TX'");
   }
 };
 
+// CREATES AND APPEHNDS ELEMENTS
 var displayWeather = function (currentWeather, location) {
   console.log(currentWeather, location);
 
@@ -84,6 +87,6 @@ var displayWeather = function (currentWeather, location) {
   windSpeedEl.textContent = "Wind Speed: " + currentWeather.wind.speed;
 };
 
-searchBarEl.addEventListener("submit", searchEventHandler);
+submit.addEventListener("submit", searchEventHandler);
 
 // getCoordinates("Austin, TX");
