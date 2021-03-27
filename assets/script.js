@@ -9,6 +9,7 @@ var getLocationUV = function (lat, lon) {
     if (response.ok) {
       response.json().then(function (data) {
         console.log(data);
+        displayUV(data);
       });
     }
   });
@@ -22,6 +23,7 @@ var getForcast = function (lat, lon) {
     if (response.ok) {
       response.json().then(function (data) {
         console.log(data);
+        displayForcast(data);
       });
     }
   });
@@ -35,6 +37,10 @@ var getCoordinates = function (cityName, stateCode) {
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
+            var currentWeather = data
+            console.log(currentWeather);
+            displayCurrent(currentWeather);
+
           var lat = data.coord.lat;
           console.log(lat);
           var lon = data.coord.lon;
@@ -70,9 +76,9 @@ var searchEventHandler = function (event) {
   }
 };
 
-// CREATES AND APPEHNDS ELEMENTS
-var displayWeather = function (currentWeather, location) {
-  console.log(currentWeather, location);
+// FILLS TEXT CONTENT
+var displayCurrent = function (currentWeather) {
+  console.log(currentWeather);
 
   var cityNameEl = document.getElementById("cityName");
   cityNameEl.textContent = currentWeather.name;
@@ -85,6 +91,51 @@ var displayWeather = function (currentWeather, location) {
 
   var windSpeedEl = document.getElementById("wind");
   windSpeedEl.textContent = "Wind Speed: " + currentWeather.wind.speed;
+};
+
+// // FILLS TEXT CONTENT 
+var displayUV = function (data) {
+  console.log("this is the UV", data);
+  var uvIndexEl = document.getElementById("uv-index");
+  uvIndexEl.textContent = "UV Index: " + data.value;
+};
+
+// DISPLAYS FORCAST
+var displayForcast = function (data) {
+  console.log(data);
+  console.log("this is the forcast", data);
+  
+  var oneDay = document.createElement("div");
+  oneDay.textContent = data.list[0].weather[0].description;
+  var day1Card = document.getElementById("day1");
+  day1Card.appendChild(oneDay);
+  console.log(oneDay);
+
+
+  var twoDay = document.createElement("div");
+  twoDay.textContent = data.list[8].weather[0].description;
+  var day2Card = document.getElementById("day2");
+  day2Card.appendChild(twoDay);
+  console.log(twoDay);
+
+  var threeDay = document.createElement("div");
+  threeDay.textContent = data.list[16].weather[0].description;
+  var day3Card = document.getElementById("day3");
+  day3Card.appendChild(threeDay);
+  console.log(threeDay);
+  
+  var fourDay = document.createElement("div");
+  fourDay.textContent = data.list[24].weather[0].description;
+  var day4Card = document.getElementById("day4");
+  day4Card.appendChild(fourDay);
+  console.log(fourDay);
+  
+  var fiveDay = document.createElement("div");
+  fiveDay.textContent = data.list[32].weather[0].description;
+  var day5Card = document.getElementById("day5");
+  day5Card.appendChild(fiveDay);
+  console.log(fiveDay);
+
 };
 
 submit.addEventListener("submit", searchEventHandler);
